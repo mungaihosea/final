@@ -1,0 +1,145 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="row">
+  <div class="col-md-4">
+    <a href="{% url 'schoolapp:enter_scores' %}"
+      ><div
+        style="background-color: rgb(37, 37, 216); color:white;"
+        class="metric"
+      >
+        <span class="icon"><i class="fa fa-download"></i></span>
+        <p>
+          <span class="number">Enter Exam Scores</span>
+          <span class="title">add scores to an exam that has been done</span>
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <!-- <div class="col-md-4">
+    <a
+      ><div
+        style="background-color: rgb(110, 30, 30); color: white;"
+        class="metric"
+      >
+        <span class="icon"><i class="fa fa-bar-chart"></i></span>
+        <p>
+          <span class="number">View Reports</span>
+          <span class="title">view generated graphical reports for exams</span>
+        </p>
+      </div>
+    </a>
+  </div> -->
+  <div class="col-md-4">
+    <a href="{% url 'schoolapp:generate_results' %}"
+      ><div
+        style="background-color: rgba(169, 23, 182, 0.678); color: white;"
+        class="metric"
+      >
+        <span class="icon"><i class="fa fa-eye"></i></span>
+        <p>
+          <span class="number">Generate ExamResults</span>
+          <span class="title">calculate and generate students reports</span>
+        </p>
+      </div>
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href="/generate_endterm_reports"
+      ><div
+        style="background-color: rgb(2, 115, 143); color: white;"
+        class="metric"
+      >
+        <span class="icon"><i class="fa fa-bar-chart"></i></span>
+        <p>
+          <span class="number">Generate EndTerm Reports</span>
+          <span class="title">generate comprehensive endterm reports</span>
+        </p>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <!-- PANEL NO CONTROLS -->
+  <div class="panel col-md-4">
+    <div class="panel-heading">
+      <h3 class="panel-title">School Population</h3>
+      <!-- <div class="right"></div> -->
+    </div>
+    <div class="panel-body no-padding">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Girls</th>
+            <th>Boys</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">Form1</a></td>
+            <td>{{form1f}}</td>
+            <td>{{form1m}}</td>
+            <td>{{form1}}</td>
+          </tr>
+          <tr>
+            <td><a href="#">Form2</a></td>
+            <td>{{form2f}}</td>
+            <td>{{form2m}}</td>
+            <td>{{form2}}</td>
+          </tr>
+          <tr>
+            <td><a href="#">Form3</a></td>
+            <td>{{form3f}}</td>
+            <td>{{form3m}}</td>
+            <td>{{form3}}</td>
+          </tr>
+          <tr>
+            <td><a href="#">Form4</a></td>
+            <td>{{form4m}}</td>
+            <td>{{form4f}}</td>
+            <td>{{form4}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- END PANEL NO CONTROLS -->
+
+  <div class="col-md-4">
+    <!-- PANEL NO CONTROLS -->
+    <div class="panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">Administrative</h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          <a
+            href="/add_student"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >add_student</a
+          >
+          <a
+            href="/edit_grading_system"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >Edit grading system</a
+          >
+          <a
+            href="{% url 'schoolapp:portal' %}"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >open/close exam portal</a
+          >
+          <a href="" style="color: black;" class="btn btn-primary m-2"
+            >promote students to next class</a
+          >
+        </p>
+      </div>
+    </div>
+    <!-- END PANEL NO CONTROLS -->
+  </div>
+</div>
+
+{% endblock content %}

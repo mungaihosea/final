@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %} {% endblock head %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	  <!-- VENDOR CSS -->
+	  <!-- <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"> -->
+	  <link rel="stylesheet" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}">
+	  <link rel="stylesheet" href="{% static 'assets/vendor/linearicons/style.css' %}">
+	  <link rel="stylesheet" href="{% static 'assets/vendor/chartist/css/chartist-custom.css' %}">
+	  <!-- MAIN CSS -->
+	  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+	  <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	  <link rel="stylesheet" href="{% static 'assets/css/demo.css' %}">
+	  <!-- ICONS -->
+	  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
+	  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/img/favicon.png' %}">
+    <!-- fusion charts js -->
+    <script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
+    <script type="text/javascript" src="{% static "fusioncharts/fusioncharts.charts.js" %}"></script>
+    <script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fusion.js" %}"></script>
+    <title>Patterson Memorial</title>
+    <!-- plugins:css -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="{% static 'node_modules/mdi/css/materialdesignicons.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css' %}"
+    />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
+    <!-- contact depencies start here -->
+
+    <!--===============================================================================================-->
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      {% include 'navbar.html' %}
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <div class="row row-offcanvas row-offcanvas-right">
+          <!-- partial:../../partials/_sidebar.html -->
+          {% include 'sidebar.html' %}
+          <!-- partial -->
+          <div class="content-wrapper">
+            {% block content %} {% endblock content %}
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div
+              class="d-sm-flex justify-content-center justify-content-sm-between"
+            >
+              <span
+                class="text-muted text-center text-sm-left d-block d-sm-inline-block"
+                >Copyright © 2020
+                <a href="https://www.bootstrapdash.com/" target="_blank"
+                  >Bootstrap Dash</a
+                >. All rights reserved.</span
+              >
+              <span
+                class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"
+                >Hand-crafted & made with
+                <i class="mdi mdi-heart text-danger"></i>Hosea
+                (mungaihosea@gmail.com)</span
+              >
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- row-offcanvas ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script> -->
+    <script src="{% static 'node_modules/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'node_modules/popper.js/dist/umd/popper.min.js' %}"></script>
+    <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="{% static 'js/off-canvas.js' %}"></script>
+    <script src="{% static 'js/misc.js' %}"></script>
+
+
+  <!-- <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script> -->
+	<!-- <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script> -->
+	<script src="{% static 'assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/chartist/js/chartist.min.js' %}"></script>
+	<script src="{% static 'assets/scripts/klorofil-common.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <!-- End custom js for this page-->
+  </body>
+</html>

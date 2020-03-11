@@ -1,0 +1,178 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+  <div class="col-md-4">
+    <!-- PANEL NO CONTROLS -->
+    <div class="panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">Term 1</h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          BOT {% if portal.term1bot == True %}
+          <a
+            href="?timestamp=term1bot"
+            style="color: black;"
+            class="btn btn-success m-2"
+            >open</a
+          ><br />
+          {% elif portal.term1bot == False %}
+          <a
+            href="?timestamp=term1bot"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >open</a
+          ><br />
+          {% endif %} MOT {% if portal.term1mot == True %}
+          <a
+            href="?timestamp= term1mot"
+            style="color: black;"
+            class="btn btn-success m-2"
+            >open</a
+          >
+          <br />
+          {% elif portal.term1mot == False %}
+          <a
+            href="?timestamp= term1mot"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >closed</a
+          >
+          <br />
+          {% endif %} EOT {% if portal.term1eot == True %}
+          <a
+            href="?timestamp=term1eot"
+            style="color: black;"
+            class="btn btn-success m-2"
+            >open</a
+          >
+          {% elif portal.term1eot == False %}
+          <a
+            href="?timestamp=term1eot"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >closed</a
+          ><br />
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    <!-- END PANEL NO CONTROLS -->
+  </div>
+  <div class="col-md-4">
+    <!-- PANEL NO CONTROLS -->
+    <div class="panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">Term 2</h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          BOT {% if portal.term2bot == True %}
+          <a
+            href="?timestamp=term2bot"
+            style="color: black;"
+            class="btn btn-success m-2"
+            >open</a
+          ><br />
+          {% elif portal.term2bot == False %}
+          <a
+            href="?timestamp=term2bot"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >open</a
+          ><br />
+          {% endif %} MOT {% if portal.term2mot == True %}
+          <a
+            href="?timestamp= term2mot"
+            style="color: black;"
+            class="btn btn-success m-2"
+            >open</a
+          >
+          <br />
+          {% elif portal.term2mot == False %}
+          <a
+            href="?timestamp= term2mot"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >closed</a
+          >
+          <br />
+          {% endif %} EOT {% if portal.term2eot == True %}
+          <a
+            href="?timestamp=term2eot"
+            style="color: black;"
+            class="btn btn-success m-2"
+            >open</a
+          >
+          {% elif portal.term2eot == False %}
+          <a
+            href="?timestamp=term2eot"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >closed</a
+          ><br />
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    <!-- END PANEL NO CONTROLS -->
+  </div>
+  <div class="col-md-4">
+    <!-- PANEL NO CONTROLS -->
+    <div class="panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">Term 3</h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          BOT {% if portal.term3bot == True %}
+          <a
+            href="?timestamp=term3bot"
+            style="color: black;"
+            class="btn btn-success m-2"
+            >open</a
+          ><br />
+          {% elif portal.term3bot == False %}
+          <a
+            href="?timestamp=term3bot"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >open</a
+          ><br />
+          {% endif %} MOT {% if portal.term3mot == True %}
+          <a
+            href="?timestamp= term3mot"
+            style="color: black;"
+            class="btn btn-success m-2"
+            >open</a
+          >
+          <br />
+          {% elif portal.term3mot == False %}
+          <a
+            href="?timestamp= term3mot"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >closed</a
+          >
+          <br />
+          {% endif %} EOT {% if portal.term3eot == True %}
+          <a
+            href="?timestamp=term3eot"
+            style="color: black;"
+            class="btn btn-success m-2"
+            >open</a
+          >
+          {% elif portal.term3eot == False %}
+          <a
+            href="?timestamp=term3eot"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >closed</a
+          ><br />
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    <!-- END PANEL NO CONTROLS -->
+  </div>
+</div>
+{% endblock content %}

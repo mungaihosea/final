@@ -1,0 +1,86 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <!--     
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <span class="menu-title">Home</span>
+          <span class="menu-sub-title">( 2 new updates )</span>
+          <i class="mdi mdi-home menu-icon"></i>
+        </a>
+      </li> -->
+    <li class="nav-item">
+      <a class="nav-link" href="/">
+        <span class="menu-title">Dashboard</span>
+        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+      </a>
+    </li>
+    {% if active_user %}
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        data-toggle="collapse"
+        href="#ui-basic"
+        aria-expanded="false"
+        aria-controls="ui-basic"
+      >
+        <span class="menu-title">Class Lists</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="/class_list/1/">form 1 </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/class_list/2/">form 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/class_list/3/">form 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/class_list/4/">form 4</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <!-- <li class="nav-item">
+        <a class="nav-link" href="pages/icons/font-awesome.html">
+          <span class="menu-title">My account</span>
+          <i class="mdi mdi-contacts menu-icon"></i>
+        </a>
+      </li> -->
+    {% endif %}
+    <!-- <li class="nav-item">
+        <a class="nav-link" href="">
+          <span class="menu-title">Contact</span>
+          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+        </a>
+      </li> -->
+    <!-- <li class="nav-item">
+        <a class="nav-link" href="#">
+          <span class="menu-title">find report card</span>
+          <i class="mdi mdi-chart-bar menu-icon"></i>
+        </a>
+      </li> -->
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <span class="menu-title">Admin login</span>
+        <i class="mdi mdi-table-large menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <span class="menu-title">Logout</span>
+        <i class="mdi mdi-table-large menu-icon"></i>
+      </a>
+    </li>
+
+    <!-- <li class="nav-item">
+        <a class="nav-link" href="">
+          <span class="menu-title">About Developer </span>
+          <i class="mdi mdi-table-large menu-icon"></i>
+        </a>
+      </li> -->
+  </ul>
+</nav>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+<h3>score sheet for form {{form}} {{stream}} {{subject}}</h3>
+<form method="POST">
+  {% csrf_token %}
+  <input class="btn btn-primary" type="submit" value="save_scores" />
+  <div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            Adm No
+          </th>
+          <th>
+            Name
+          </th>
+          <th>
+            Score
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in student_queryset %}
+        <tr>
+          <td>
+            {{student.adm_no}}
+          </td>
+          <td>
+            {{student.student_name}}
+          </td>
+          <td>
+            <input
+              value="{{student.score}}"
+              name="{{student.id}}"
+              type="number"
+              min="0"
+              max="100"
+              required
+            />
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</form>
+{% endblock content %}

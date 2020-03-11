@@ -1,0 +1,107 @@
+{% extends 'base.html' %} {% block content %}
+<div>
+    <p>
+        <h3>Modify {{form}} {{subject.subject_name}} Grading system</h3>
+    </p>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <input class="btn btn-primary" type="submit" value="save changes">
+<table style="margin: 30px;" class="table">
+  <thead>
+    <tr>
+      <th>Grade</th>
+      <th>Upper limit</th>
+      <th>Lower limit</th>
+      <th>Points</th>
+      
+    </tr>
+  </thead>  
+  <tbody>
+    <tr>
+      <td>A</td>
+      <td><input name="Aplain_upper" value="{{current_grading_system.Aplain_upper}}" type="number"></td>
+      <td><input name="Aplain_lower" value="{{current_grading_system.Aplain_lower}}" type="number"></td>
+      <td><input name="Aplain_points" value="{{current_grading_system.Aplain_points}}" type="number"></td>
+      
+    </tr>
+    <tr>
+      <td>A-</td>
+      <td><input name="Aminus_upper" value="{{current_grading_system.Aminus_upper}}" type="number"></td>
+      <td><input name="Aminus_lower" value="{{current_grading_system.Aminus_lower}}" type="number"></td>
+      <td><input name="Aminus_points" value="{{current_grading_system.Aminus_points}}" type="number"></td>
+      
+    </tr>
+    <tr>
+      <td>B+</td>
+      <td><input name="Bplus_upper" value="{{current_grading_system.Bplus_upper}}" type="number"></td>
+      <td><input name="Bplus_lower" value="{{current_grading_system.Bplus_lower}}" type="number"></td>
+      <td><input name="Bplus_points" value="{{current_grading_system.Bplus_points}}" type="number"></td>
+      
+    </tr>
+    <tr>
+      <td>B</td>
+      <td><input name="Bplain_upper" value="{{current_grading_system.Bplain_upper}}" type="number"></td>
+      <td><input name="Bplain_lower" value="{{current_grading_system.Bplain_lower}}" type="number"></td>
+      <td><input name="Bplain_points" value="{{current_grading_system.Bplain_points}}" type="number"></td>
+
+    </tr>
+    <tr>
+      <td>B-</td>
+      <td><input name="Bminus_upper" value="{{current_grading_system.Bminus_upper}}" type="number"></td>
+      <td><input name="Bminus_lower" value="{{current_grading_system.Bminus_lower}}" type="number"></td>
+      <td><input name="Bminus_points" value="{{current_grading_system.Bminus_points}}" type="number"></td>
+
+    </tr>
+    <tr>
+        <td>C+</td>
+        <td><input name="Cplus_upper" value="{{current_grading_system.Cplus_upper}}" type="number"></td>
+        <td><input name="Cplus_lower" value="{{current_grading_system.Cplus_lower}}" type="number"></td>
+        <td><input name="Cplus_points" value="{{current_grading_system.Cplus_points}}" type="number"></td>
+  
+      </tr>
+      <tr>
+        <td>C</td>
+        <td><input name="Cplain_upper" value="{{current_grading_system.Cplain_upper}}" type="number"></td>
+        <td><input name="Cplain_lower" value="{{current_grading_system.Cplain_lower}}" type="number"></td>
+        <td><input name="Cplain_points" value="{{current_grading_system.Cplain_points}}" type="number"></td>
+  
+      </tr>
+      <tr>
+        <td>C-</td>
+        <td><input name="Cminus_upper" value="{{current_grading_system.Cminus_upper}}" type="number"></td>
+        <td><input name="Cminus_lower" value="{{current_grading_system.Cminus_lower}}" type="number"></td>
+        <td><input name="Cminus_points" value="{{current_grading_system.Cminus_points}}" type="number"></td>
+  
+      </tr>
+      <tr>
+        <td>D+</td>
+        <td><input name="Dplus_upper" value="{{current_grading_system.Dplus_upper}}" type="number"></td>
+        <td><input name="Dplus_lower" value="{{current_grading_system.Dplus_lower}}" type="number"></td>
+        <td><input name="Dplus_points" value="{{current_grading_system.Dplus_points}}" type="number"></td>
+  
+      </tr>
+      <tr>
+        <td>D</td>
+        <td><input name="Dplain_upper" value="{{current_grading_system.Dplain_upper}}" type="number"></td>
+        <td><input name="Dplain_lower" value="{{current_grading_system.Dplain_lower}}" type="number"></td>
+        <td><input name="Dplain_points" value="{{current_grading_system.Dplain_points}}" type="number"></td>
+  
+      </tr>
+      <tr>
+        <td>D-</td>
+        <td><input name="Dminus_upper" value="{{current_grading_system.Dminus_upper}}" type="number"></td>
+        <td><input name="Dminus_lower" value="{{current_grading_system.Dminus_lower}}" type="number"></td>
+        <td><input name="Dminus_points" value="{{current_grading_system.Dminus_points}}" type="number"></td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td><input name="Eplain_upper" value="{{current_grading_system.Eplain_upper}}" type="number"></td>
+        <td><input name="Eplain_lower" value="{{current_grading_system.Eplain_upper}}" type="number"></td>
+        <td><input name="Eplain_points" value="{{current_grading_system.Eplain_points}}" type="number"></td>
+      </tr>
+  </tbody>
+</table>
+</form>
+{% endblock content %}

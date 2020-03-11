@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %}
+<div>
+  {% for subject in teacher_subject_queryset %}
+  <div class="dropdown">
+    <a
+      class="btn btn-secondary dropdown-toggle m-3"
+      href="#"
+      role="button"
+      id="dropdownMenuLink"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      {{subject.subject_name}}
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a
+        class="dropdown-item"
+        href="/score_sheet/?subject_id={{subject.id}}&timestamp={{timestamp}}&form={{form}}&stream=a"
+        >form {{form}} A</a
+      >
+      <a
+        class="dropdown-item"
+        href="/score_sheet/?subject_id={{subject.id}}&timestamp={{timestamp}}&form={{form}}&stream=b"
+        >form {{form}} B</a
+      >
+      <a
+        class="dropdown-item"
+        href="/score_sheet/?subject_id={{subject.id}}&timestamp={{timestamp}}&form={{form}}&stream=c"
+        >form {{form}} C</a
+      >
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}
