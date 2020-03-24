@@ -1,7 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 <h3>click to Generate Endterm reports</h3>
+<form method="POST">
+  {% csrf_token %} closing_date
+  <input
+    required
+    value="{{dates.closing_date}}"
+    name="closing_date"
+    type="text"
+    style="margin-right: 10px;"
+  />
+  opening_date<input
+    value="{{dates.opening_date}}"
+    name="opening_date"
+    type="text"
+    required
+  />
+  <input type="submit" value="update" class="btn btn-primary m-3" />
+</form>
+<br />
+<input hidden name="form" value="1" />
 <a href="?form=1" class="btn btn-primary m-3">form 1</a
 ><a href="?form=2" class="btn btn-primary m-3">form 2</a
 ><a href="?form=3" class="btn btn-primary m-3">form 3</a
 ><a href="?form=4" class="btn btn-primary m-3">form 4</a>
+
 {% endblock content %}

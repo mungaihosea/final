@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+
+<a href="?promote=true" class="btn btn-primary m-3">Promote All</a>
+<a href="{% url 'schoolapp:dash' %}" class="btn btn-danger m-3 ">Cancel</a
+><br />
+<small
+  >!!! Please note that all students will be promoted to the next class of the
+  same stream</small
+>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>
+        name
+      </th>
+      <th>
+        adm no
+      </th>
+      <th>
+        form
+      </th>
+      <th>
+        stream
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in student_queryset %}
+    <tr>
+      <td>
+        {{student.student_name}}
+      </td>
+      <td>
+        {{student.adm_no}}
+      </td>
+      <td>
+        {{student.form}}
+      </td>
+      <td>
+        {{student.stream}}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

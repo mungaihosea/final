@@ -5,7 +5,7 @@
     <div class="card-body">
       <h4 class="card-title">Student registration Form</h4>
       <a href="/administration/"><button class="btn btn-danger m-2">Cancel</button></a>
-      <form class="form-sample" method="POST">
+      <form class="form-sample" enctype="multipart/form-data" method="POST">
           {% csrf_token %}
           <button class="btn btn-success m-2" type="submit">Save Student</button>
           
@@ -18,6 +18,14 @@
               <label class="col-sm-3 col-form-label">Student Name</label>
               <div class="col-sm-9">
                 <input name="student_name" required type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">KCPE index</label>
+              <div class="col-sm-9">
+                <input name="kcpe_index" type="number" class="form-control" />
               </div>
             </div>
           </div>
@@ -83,7 +91,7 @@
                 <div class="form-group row">
                   <label type="integer" class="col-sm-3 col-form-label">Nemis UPI No</label>
                   <div class="col-sm-9">
-                    <input required name="upi_no" class="form-control" />
+                    <input name="upi_no" class="form-control" />
                   </div>
                 </div>
               </div>
@@ -101,7 +109,7 @@
                 <div class="form-group row">
                   <label  class="col-sm-3 col-form-label">Date of admission</label>
                   <div class="col-sm-9">
-                    <input type="date" name="adm_date" class="form-control" placeholder="" />
+                    <input type="date" name="adm_date" class="form-control" />
                   </div>
                 </div>
               </div>
@@ -112,7 +120,7 @@
                 <div class="form-group row">
                   <label type="integer" class="col-sm-3 col-form-label">KCPE marks</label>
                   <div class="col-sm-9">
-                    <input name="kcpe" class="form-control" placeholder="" />
+                    <input name="kcpe" type="number" class="form-control" placeholder="" />
                   </div>
                 </div>
               </div>
@@ -183,7 +191,7 @@
             </div>
           </div>
         
-        <div class="row">
+        <!-- <div class="row">
         <div class="col-md-6">
         <p class="card-description">
             <h6>subjects info</h6>
@@ -212,7 +220,7 @@
             <input type="checkbox" name="bussiness" style="margin: 10px;">Business
         </div>
 
-        </div>
+        </div> -->
         
       </form>
     </div>

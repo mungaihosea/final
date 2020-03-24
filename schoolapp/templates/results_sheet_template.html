@@ -1,0 +1,169 @@
+{% load static %}
+<html>
+  <head>
+    <title>report card</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}"
+    />
+    <style>
+      @page {
+        margin: 0;
+      }
+    </style>
+    <style>
+      th {
+        font-size: 10px;
+      }
+
+      td {
+        border: 1px solid rgb(194, 191, 191);
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body style="padding: 0px; margin: 0px;">
+    <div>
+      <center>
+        <div id="letter-head" style="margin-top: 10px;">
+          <img
+            style="width: 60px;height: 60px;"
+            src="{% static 'custom_images/pattersonlogo.png' %}"
+          />
+          <h4 style="margin: 0px;">PATTERSON MEMORIAL SECONDARY SCHOOL</h4>
+          <h5 style="margin: 0px">www.pattersonmemmorial.com</h5>
+          <h6 style="margin: 0px;">motto: work smart</h6>
+        </div>
+      </center>
+      <hr />
+    </div>
+    <div>
+      <table
+        style="border:1px solid rgb(194, 191, 191);border-collapse:collapse; width: 100%; height: 100px;"
+      >
+        <thead>
+          <tr>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              class position
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              name
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              adm no
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              stream
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              stream position
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              Mat
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              Eng
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              Kis
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              Che
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              Bio
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              Phy
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              geo
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              his
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              cre
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              bus
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              agr
+            </th>
+            <th style="border: 1px solid rgb(194, 191, 191);">
+              total points
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for result in result_queryset %}
+          <tr>
+            <td>
+              {{result.class_rank}}
+            </td>
+            <td>
+              {{result.student_name}}
+            </td>
+            <td>
+              {{result.adm_no}}
+            </td>
+            <td>
+              {{result.stream}}
+            </td>
+            <td>
+              {{result.stream_rank}}
+            </td>
+            <td>
+              {% if result.mathematics != 0 %} {{result.mathematics}}
+              {{result.mathematics_grade}} {% else %} -- {% endif %}
+            </td>
+            <td>
+              {% if result.english != 0 %} {{result.english}} {{result.english_grade}}
+              {% else %} -- {% endif %}
+            </td>
+            <td>
+              {% if result.kiswahili != 0 %} {{result.kiswahili}}
+              {{result.kiswahili_grade}} {% else %} -- {% endif %}
+            </td>
+            <td>
+              {% if result.chemistry != 0 %} {{result.chemistry}}
+              {{result.chemistry_grade}} {% else %} -- {% endif %}
+            </td>
+            <td>
+              {% if result.biology != 0 %} {{result.biology}} {{result.biology_grade}}
+              {% else %} -- {% endif %}
+            </td>
+            <td>
+              {% if result.physics != 0 %} {{result.physics}} {{result.physics_grade}}
+              {% else %} -- {% endif %}
+            </td>
+            <td>
+              {% if result.geography != 0 %} {{result.geography}}
+              {{result.geography_grade}} {% else %} -- {% endif %}
+            </td>
+            <td>
+              {% if result.history != 0 %} {{result.history}} {{result.history_grade}}
+              {% else %} -- {% endif %}
+            </td>
+            <td>
+              {% if result.cre != 0 %} {{result.cre}} {{result.cre_grade}} {% else %}
+              -- {% endif %}
+            </td>
+            <td>
+              {% if result.bussiness != 0 %} {{result.bussiness}}
+              {{result.bussiness_grade}} {% else %} -- {% endif %}
+            </td>
+            <td>
+              {% if result.agriculture != 0 %} {{result.agriculture}}
+              {{result.agriculture_grade}} {% else %} -- {% endif %}
+            </td>
+            <td>
+              {{result.total_points}}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </div>
+  </body>
+</html>

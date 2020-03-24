@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-12 stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Change Fee Structure</h4>
+      <p class="card-description">
+        fill in the form below to change the fee Structure
+      </p>
+      <form class="forms-sample" method="POST">
+        {% csrf_token %}
+        <div class="form-group row">
+          <label for="exampleInputEmail2" class="col-sm-3 col-form-label"
+            >First Term</label
+          >
+          <div class="col-sm-9">
+            <input
+              name="term1"
+              type="number"
+              class="form-control"
+              id="exampleInputEmail2"
+              placeholder="Enter term 1 fees"
+              required
+              value="{{fee_structure.term1}}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="exampleInputPassword2" class="col-sm-3 col-form-label"
+            >Second Term</label
+          >
+          <div class="col-sm-9">
+            <input
+              required
+              name="term2"
+              type="number"
+              class="form-control"
+              id="exampleInputPassword2"
+              placeholder="Enter term 2 fees"
+              value="{{fee_structure.term2}}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="exampleInputPassword2" class="col-sm-3 col-form-label"
+            >Third Term</label
+          >
+          <div class="col-sm-9">
+            <input
+              required
+              name="term3"
+              type="number"
+              class="form-control"
+              id="exampleInputPassword2"
+              placeholder="Enter term 3 fees"
+              value="{{fee_structure.term3}}"
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success mr-2">Save Changes</button>
+        <a href="/accounts/" class="btn btn-light">Back</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

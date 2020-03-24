@@ -1,23 +1,21 @@
 {% extends 'base.html' %} {% block content %} {% if portal.term1bot == True %}
 <div class="dropdown">
-  <a href="?timestamp=term1bot">Generate Term 1 BOT exam results</a>
+  <a href="/generate_endterm_reports/term1/">Generate Term 1 results</a>
   {% elif portal.term2bot == True %}
-  <a href="?timestamp=term2bot">Generate Term 2 BOT exam results</a>
+  <a href="/generate_endterm_reports/term2/">Generate Term 2 results</a>
   {% elif portal.term3bot == True %}
-  <a href="?timestamp=term3bot">Generate Term 3 BOT exam results</a>
-
-  {% elif portal.term1mot == True}
-  <a href="?timestamp=term1mot">Generate Term 1 MOT exam results</a>
-  {% elif portal.term2mot == True}
-  <a href="?timestamp=term2mot">Generate Term 2 MOT exam results</a>
-  {% elif portal.term3mot == True}
-  <a href="?timestamp=term3mot">Generate Term 3 MOT exam results</a>
-
-  {% elif portal.term1eot == True}
-  <a href="?timestamp=term1eot">Generate Term 1 EOT exam results</a>
-  {% elif portal.term2eot == True}
-  <a href="?timestamp=term2eot">Generate Term 2 EOT exam results</a>
-  {% elif portal.term3eot == True}
-  <a href="?timestamp=term3eot">Generate Term 3 EOT exam results</a>
+  <a href="/generate_endterm_reports/term3/">Generate Term 3 results</a>
+  {% elif portal.term1mot == True %}
+  <a href="/generate_endterm_reports/term1/">Generate Term 1 results</a>
+  {% elif portal.term2mot == True %}
+  <a href="/generate_endterm_reports/term2/">Generate Term 2 results</a>
+  {% elif portal.term3mot == True %}
+  <a href="/generate_endterm_reports/term3/">Generate Term 3 results</a>
+  {% elif portal.term1eot == True %}
+  <a href="/generate_endterm_reports/term1/">Generate Term 1 results</a>
+  {% elif portal.term2eot == True %}
+  <a href="/generate_endterm_reports/term2/">Generate Term 2 results</a>
+  {% elif portal.term3eot == True %}
+  <a href="/generate_endterm_reports/term3/">Generate Term 3 results</a>
 </div>
 {% endif %} {% endblock content %}

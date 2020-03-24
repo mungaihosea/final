@@ -1,0 +1,54 @@
+{% load static %}
+<html>
+  <head>
+    <title>report card</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}"
+    />
+    <style>
+      @page {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body style="padding: 0px; margin: 0px;">
+    <div>
+      <center>
+        <div id="letter-head" style="margin-top: 10px;">
+          <img
+            style="width: 60px;height: 60px;"
+            src="{% static 'custom_images/pattersonlogo.png' %}"
+          />
+          <h4 style="margin: 0px;">PATTERSON MEMORIAL SECONDARY SCHOOL</h4>
+          <h5 style="margin: 0px">www.pattersonsecondary.com</h5>
+          <h6 style="margin: 0px;">motto: work smart</h6>
+        </div>
+      </center>
+      <hr />
+    </div>
+
+    <table style="width: 400px;" class="table">
+      <thead>
+        <tr>
+          <th>student name</th>
+          <th>Adm No.</th>
+          <th>form</th>
+          <th>class</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in student_queryset %}
+        <tr>
+          <td style="font-size: 12px;">{{student.student_name}}</td>
+          <td style="font-size: 12px;">{{student.adm_no}}</td>
+          <td style="font-size: 12px;">{{student.form}}</td>
+          <td style="font-size: 12px;">{{student.stream}}</td>
+          <td style="font-size: 12px;">{{student.gender}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

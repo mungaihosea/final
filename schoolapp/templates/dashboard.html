@@ -29,6 +29,7 @@
       </div>
     </a>
   </div> -->
+  {% if request.user.teacher.is_dean %}
   <div class="col-md-4">
     <a href="{% url 'schoolapp:generate_results' %}"
       ><div
@@ -43,6 +44,7 @@
       </div>
     </a>
   </div>
+  {% endif %} {% if request.user.teacher.is_dean %}
   <div class="col-md-4">
     <a href="/generate_endterm_reports"
       ><div
@@ -57,6 +59,36 @@
       </div>
     </a>
   </div>
+
+  <div class="col-md-4">
+    <a href=""
+      ><div
+        style="background-color: rgba(58, 216, 37, 0.664); color:white;"
+        class="metric"
+      >
+        <span class="icon"><i class="fa fa-download"></i></span>
+        <p>
+          <span class="number">TIMETABLING</span>
+          <span class="title"></span>
+        </p>
+      </div>
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href=""
+      ><div
+        style="background-color: rgba(58, 216, 37, 0.664); color:white;"
+        class="metric"
+      >
+        <span class="icon"><i class="fa fa-download"></i></span>
+        <p>
+          <span class="number">LIBRARY</span>
+          <span class="title"></span>
+        </p>
+      </div>
+    </a>
+  </div>
+  {% endif %}
 </div>
 <div class="row">
   <!-- PANEL NO CONTROLS -->
@@ -96,16 +128,22 @@
           </tr>
           <tr>
             <td><a href="#">Form4</a></td>
-            <td>{{form4m}}</td>
             <td>{{form4f}}</td>
+            <td>{{form4m}}</td>
             <td>{{form4}}</td>
+          </tr>
+          <tr>
+            <td><a href="#">total</a></td>
+            <td>{{girls_total}}</td>
+            <td>{{boys_total}}</td>
+            <td>{{school_total}}</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
   <!-- END PANEL NO CONTROLS -->
-
+  {% if request.user.teacher.is_dean %}
   <div class="col-md-4">
     <!-- PANEL NO CONTROLS -->
     <div class="panel">
@@ -118,28 +156,38 @@
             href="/add_student"
             style="color: black;"
             class="btn btn-primary m-2"
-            >add_student</a
-          >
+            >Add Student</a
+          ><br />
+          <a
+            href="/find_student"
+            style="color: black;"
+            class="btn btn-primary m-2"
+            >Edit Student Info</a
+          ><br />
           <a
             href="/edit_grading_system"
             style="color: black;"
             class="btn btn-primary m-2"
             >Edit grading system</a
-          >
+          ><br />
           <a
             href="{% url 'schoolapp:portal' %}"
             style="color: black;"
             class="btn btn-primary m-2"
             >open/close exam portal</a
-          >
-          <a href="" style="color: black;" class="btn btn-primary m-2"
+          ><br />
+          <a
+            href="{% url 'schoolapp:promote_students'%}"
+            style="color: black;"
+            class="btn btn-primary m-2"
             >promote students to next class</a
-          >
+          ><br />
         </p>
       </div>
     </div>
     <!-- END PANEL NO CONTROLS -->
   </div>
+  {% endif %}
 </div>
 
 {% endblock content %}

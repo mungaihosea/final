@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-primary m-3" value="save" />
+  <p>
+    This data will be filled in report cards for <u><b>{{term}}</b></u>
+  </p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>
+          name
+        </th>
+        <th>
+          adm no
+        </th>
+        <th>
+          form
+        </th>
+        <th>
+          stream
+        </th>
+        <th>
+          Closing Balance
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in student_queryset %}
+      <tr>
+        <td>
+          {{student.student_name}}
+        </td>
+        <td>
+          {{student.adm_no}}
+        </td>
+        <td>
+          {{student.form}}
+        </td>
+        <td>
+          {{student.stream}}
+        </td>
+        <td>
+          <input
+            value="{{student.balance}}"
+            name="{{student.id}}"
+            required
+            type="number"
+          />
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</form>
+{% endblock content %}

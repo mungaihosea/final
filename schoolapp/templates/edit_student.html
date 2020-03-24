@@ -1,0 +1,259 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="col-12 grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Student registration Form</h4>
+      <a href="{% url 'schoolapp:dash' %}"><button class="btn btn-danger m-2">Cancel</button></a>
+      <form class="form-sample" enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-success m-2" type="submit">Save Student</button><br />
+          {% if student.student_photo %}
+          <img style="height: 200px;" src = "{{student.student_photo.url}}">
+          {% endif %}
+        <p class="card-description">
+          <h6>Personal info</h6>
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Student Name</label>
+              <div class="col-sm-9">
+                <input value="{{student.student_name}}" name="student_name" required type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">KCPE index</label>
+              <div class="col-sm-9">
+                  {% if student.kcpe %}
+                <input value="{{student.kcpe_index}}" name="kcpe_index" type="number" class="form-control" />
+                {% else %}
+                <input name="kcpe_index" type="number" class="form-control" />
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Gender</label>
+              <div class="col-sm-9">
+                <select name="gender" class="form-control">
+                  <option value = "m">Male</option>
+                  <option value = "f">Female</option>
+                </select>
+              </div>
+            </div>
+          </div> -->
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Date of Birth</label>
+              <div class="col-sm-9">
+                  {% if student.date_of_birth %}
+                <input value="{{student.date_of_birth}}"  name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" />
+                {% else %}
+                <input  name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" />
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Form</label>
+              <div class="col-sm-9">
+                <select name="form" class="form-control">
+                  <option value="1">form 1</option>
+                  <option value="2">form 2</option>
+                  <option value="3">form 3</option>
+                  <option value="4">form 4</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Stream</label>
+              <div class="col-sm-9">
+                <select name="stream" class="form-control">
+                  <option value="a">stream A</option>
+                  <option value="b">stream B</option>
+                  <option value="c">stream C</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row">
+                  <label type="integer" class="col-sm-3 col-form-label">Admission No</label>
+                  <div class="col-sm-9">
+                    <input value="{{student.adm_no}}" name="adm_no" required class="form-control" placeholder="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label type="integer" class="col-sm-3 col-form-label">Nemis UPI No</label>
+                  <div class="col-sm-9">
+                    {% if student.upi_no %}
+                    <input value="{{student.upi_no}}" name="upi_no" class="form-control" />
+                    {% else %}
+                    <input name="upi_no" class="form-control" />
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row">
+                  <label type="integer" class="col-sm-3 col-form-label">Birth certificate No</label>
+                  <div class="col-sm-9">
+                      {% if student.birth_cert %}
+                    <input value="{{student.birth_cert}}" name="birth_cert_no" class="form-control" placeholder="" />
+                    {% else %}
+                    <input name="birth_cert_no" class="form-control" placeholder="" />
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label  class="col-sm-3 col-form-label">Date of admission</label>
+                  <div class="col-sm-9">
+                    {% if student.adm_date %}
+                    <input value = {{student.adm_date}} name="adm_date" class="form-control" />
+                    {% else %}
+                    <input name="adm_date" class="form-control" />
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row">
+                  <label type="integer" class="col-sm-3 col-form-label">KCPE marks</label>
+                  <div class="col-sm-9">
+                      {% if student.kcpe %}
+                    <input value="{{student.kcpe}}" name="kcpe" type="number" class="form-control" placeholder="" />
+                    {% else %}
+                    <input name="kcpe" type="number" class="form-control" placeholder="" />
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label type="integer" class="col-sm-3 col-form-label">Student's Photo</label>
+                  <div class="col-sm-9">
+                      {% if student.photo %}
+                    <input value="{{student.photo}}" name="photo" type="file">
+                    {% else %}
+                    <input name="photo" type="file">
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+        </div>
+        <p class="card-description">
+          <h6>Address</h6>
+        </p>
+        <!-- <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">students phone number</label>
+              <div class="col-sm-9">
+                <input name="student_phone" type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">county</label>
+              <div class="col-sm-9">
+                <input name="county" type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">parent's phone number</label>
+              <div class="col-sm-9">
+                <input name="parent_phone"  type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Parents Name</label>
+              <div class="col-sm-9">
+                <input name="parent_name"  type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Guardian's phone number</label>
+                <div class="col-sm-9">
+                  <input name="guardian_phone"  type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Guardian's Name</label>
+                <div class="col-sm-9">
+                  <input name="guardian_name"  type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div> -->
+        
+        <!-- <div class="row">
+        <div class="col-md-6">
+        <p class="card-description">
+            <h6>subjects info</h6>
+            <u>compulsory subjects</u>
+        </p>
+            {% for subject in subject_queryset %}
+                {% if subject.compulsory %}
+                    {{subject.subject_name}}<br/>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-md-6">
+            <h6>choose science subject</h6>
+            <input type="checkbox" name="biology" style="margin: 10px;"> Biology
+            <input type="checkbox" name="physics" style="margin: 10px;">physics
+            <br>
+            <br>
+            <h6>choose humanity subject</h6>
+            <input type="checkbox" name="history" style="margin: 10px;">History
+            <input type="checkbox" name="geography" style="margin: 10px;">Geography
+
+            <br>
+            <br>
+            <h6>choose art subject</h6>
+            <input type="checkbox" name="agriculture" style="margin: 10px;">Agriculture
+            <input type="checkbox" name="bussiness" style="margin: 10px;">Business
+        </div>
+
+        </div> -->
+        
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

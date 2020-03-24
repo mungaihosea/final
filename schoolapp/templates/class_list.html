@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block content %}
+<form>
+  class
+  <select name="class" style="margin-right: 20px;">
+    <option value="entire">Entire</option>
+    <option value="a">A</option>
+    <option value="b">B</option>
+    <option value="c">C</option>
+  </select>
+
+  Gender
+  <select name="gender" style="margin-right: 20px;">
+    <option value="entire">Entire</option>
+    <option value="m">Boys</option>
+    <option value="f">Girls</option>
+  </select>
+  <button type="submit" class="btn btn-success btn-sm m-3">Generate</button>
+
+  <hr />
+</form>
+<form method="POST">
+  {% csrf_token %}
+  <a
+    style="color: white; font-size: 17px;"
+    class="badge badge-primary"
+    style="font-size: 18px;"
+  >
+    FORM ({{filtered_class.form}}) STREAM ({{filtered_class.class}}) GENDER
+    ({{filtered_class.gender}})
+  </a>
+  <input type="text" value="print" hidden name="print" />
+  <button class="btn btn-warning ml-3" value="{{filtered_class}}" type="submit">
+    print
+  </button>
+</form>
+<table style="width: 400px;" class="table">
+  <thead>
+    <tr>
+      <th>student name</th>
+      <th>Adm No.</th>
+      <th>form</th>
+      <th>stream</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in student_queryset %}
+    <tr>
+      <td>{{student.student_name}}</td>
+      <td>{{student.adm_no}}</td>
+      <td>{{student.form}}</td>
+      <td>{{student.stream}}</td>
+      <td>{{student.gender}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

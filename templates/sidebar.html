@@ -9,12 +9,19 @@
         </a>
       </li> -->
     <li class="nav-item">
-      <a class="nav-link" href="/">
+      <a class="nav-link" href="{% url 'schoolapp:dash' %}">
         <span class="menu-title">Dashboard</span>
         <i class="mdi mdi-format-list-bulleted menu-icon"></i>
       </a>
     </li>
-    {% if active_user %}
+    {% if request.user.teacher.is_principal %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'accounts:accounts' %}">
+        <span class="menu-title">Accounts</span>
+        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+      </a>
+    </li>
+    {% endif %}
     <li class="nav-item">
       <a
         class="nav-link"
@@ -50,7 +57,7 @@
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
       </li> -->
-    {% endif %}
+
     <!-- <li class="nav-item">
         <a class="nav-link" href="">
           <span class="menu-title">Contact</span>
@@ -64,13 +71,13 @@
         </a>
       </li> -->
     <li class="nav-item">
-      <a class="nav-link" href="">
-        <span class="menu-title">Admin login</span>
+      <a class="nav-link" href="{% url 'schoolapp:login' %}">
+        <span class="menu-title">Admin Login</span>
         <i class="mdi mdi-table-large menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="">
+      <a class="nav-link" href="{% url 'schoolapp:logout' %}">
         <span class="menu-title">Logout</span>
         <i class="mdi mdi-table-large menu-icon"></i>
       </a>

@@ -1,0 +1,122 @@
+{% load static %}
+<html>
+  <head>
+    <title>report card</title>
+    <style>
+      @page{
+        margin: 0px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div>
+      <center>
+        <div id="letter-head">
+          <img
+            style="width: 50px;height: 50px;"
+            src="{% static 'custom_images/pattersonlogo.png' %}"
+          />
+          <h4 style="margin: 0px;">PATTERSON MEMORIAL SECONDARY SCHOOL</h2>
+          <h5 style="margin: 0px">www.pattersonmemorial.com</h3>
+          <h5 style="margin: 0px;">motto: work smart</h4>
+          <h6 style="margin: 0px;">end of term report card</h5>
+        </div>
+      </center>
+      <hr>
+      <div style="overflow: auto;margin: 0px; padding:0px;">
+        <div id="students_info" style="float: left;">
+          <b>Name:</b> {{stud.student_name}} <b>Adm No:</b> {{stud.adm_no}}   <b>Form:</b> {{stud.form}} <b>Stream:</b> {{stud.stream}} <b>Term</b> {{term}} <br />
+          
+          <br />
+        </div>
+        <div style="float: right;">
+          {% if stud.student_photo %}
+          <img
+            id="ladyimg"
+            src="{{stud.student_photo.url}}"
+            style="float: right; width: 50px; height: 50px;"
+          />
+          {% endif %}
+        </div>
+      </div>
+      <div style="clear: both;" class="table">
+        <table style="border:1px solid rgb(194, 191, 191);border-collapse:collapse; width: 100%; height: 100px;">
+          <tr>
+            <th style="border: 1px solid rgb(194, 191, 191);">#</th><th style="border: 1px solid rgb(194, 191, 191);">BOT</th><th style="border:1px solid rgb(194, 191, 191);">MOT</th><th style="border:1px solid rgb(194, 191, 191);">EOT</th><th style="border:1px solid rgb(194, 191, 191);">Avg</th><th style="border:1px solid rgb(194, 191, 191);">Remarks</th><th style="border:1px solid rgb(194, 191, 191);">Subject Teacher</th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Mathematics</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);"> {% if first_exam.mathematics != 0 %} {{first_exam.mathematics}} {{first_exam.mathematics_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.mathematics != 0 %} {{second_exam.mathematics}} {{second_exam.mathematics_grade}}  {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.mathematics != 0 %} {{third_exam.mathematics}} {{third_exam.mathematics_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.mathematics != 0 %} {{avg.mathematics}} {{avg.mathematics_grade}} {% else %} -- {% endif %} </td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.mathematics != 0 %} {{remark.mathematics}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">H.O.O</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">English</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.english  != 0 %} {{first_exam.english}} {{first_exam.english_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.english != 0 %} {{second_exam.english}} {{second_exam.english_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.english != 0 %} {{third_exam.english}} {{third_exam.english_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.english != 0 %} {{avg.english}} {{avg.english_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.english != 0 %} {{remark.english}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">F.M.</td>
+          </tr>
+          <tr>
+          <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Kiswahili</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.english != 0 %} {{first_exam.kiswahili}} {{first_exam.kiswahili_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.kiswahili != 0 %} {{second_exam.kiswahili}} {{second_exam.kiswahili_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.kiswahili != 0 %} {{third_exam.kiswahili}} {{third_exam.kiswahili_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.kiswahili != 0 %} {{avg.kiswahili}} {{avg.kiswahili_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.kiswahili != 0 %} {{remark.kiswahili}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">D.M.</td>
+          </tr>
+          <tr>
+          <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Biology</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.biology != 0 %} {{first_exam.biology}} {{first_exam.biology_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.biology != 0 %} {{second_exam.biology}} {{second_exam.biology_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.biology != 0 %} {{third_exam.biology}} {{third_exam.biology_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.biology != 0%} {{avg.biology}} {{avg.biology_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.biology != 0 %} {{remark.biology}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">A.K.</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">chemistry</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.chemistry != 0 %} {{first_exam.chemistry}} {{first_exam.chemistry_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.chemistry != 0 %} {{second_exam.chemistry}} {{second_exam.chemistry_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.chemistry != 0 %} {{third_exam.chemistry}} {{third_exam.chemistry_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.chemistry != 0 %} {{avg.chemistry}} {{avg.chemistry_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.chemistry != 0 %} {{remark.chemistry}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">C.O.</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Physics</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.physics != 0 %} {{first_exam.physics}} {{first_exam.physics_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.physics != 0 %} {{second_exam.physics}} {{second_exam.physics_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.physics != 0 %} {{third_exam.physics}} {{third_exam.physics_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.physics != 0 %} {{avg.physics}} {{avg.physics_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.physics != 0 %} {{remark.physics}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">C.O</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Geography</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.geography != 0 %} {{first_exam.geography}} {{first_exam.geography_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.geography != 0 %} {{second_exam.geography}} {{second_exam.geography_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.geography != 0 %} {{third_exam.geography}} {{third_exam.geography_grade}} {% else %} -- {% endif %} </td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.geography != 0%} {{avg.geography}} {{avg.geography_grade}} {% else %} -- {% endif %} </td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.geography != 0 %} {{remark.geography}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">K.J.</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">History</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.history != 0 %} {{first_exam.history}} {{first_exam.history_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.history != 0 %} {{second_exam.history}} {{second_exam.history_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.history != 0 %} {{third_exam.history}} {{third_exam.history_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.history != 0 %} {{avg.history}} {{avg.history_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.history != 0 %} {{remark.history}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">A.K.</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Cre</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.cre != 0 %} {{first_exam.cre}} {{first_exam.cre_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.cre != 0 %} {{second_exam.cre}} {{second_exam.cre_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.cre != 0 %} {{third_exam.cre}} {{third_exam.cre_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.cre != 0 %} {{avg.cre}} {{avg.cre_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);"> {% if avg.cre != 0 %} {{remark.cre}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">D.M.</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Agriculture</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.agriculture != 0 %} {{first_exam.agriculture}} {{first_exam.agriculture_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.agriculture != 0%} {{second_exam.agriculture}} {{second_exam.agriculture_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.agriculture != 0 %} {{third_exam.agriculture}} {{third_exam.agriculture_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.agriculture != 0 %} {{avg.agriculture}} {{avg.agriculture_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.agriculture != 0 %} {{remark.agriculture}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">A.K.</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Business</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if first_exam.bussiness != 0 %} {{first_exam.bussiness}} {{first_exam.bussiness_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if second_exam.bussiness != 0 %} {{second_exam.bussiness}} {{second_exam.bussiness_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if third_exam.bussiness != 0 %} {{third_exam.bussiness}} {{third_exam.bussiness_grade}} {% else %} -- {% endif %} </td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.bussiness != 0 %} {{avg.bussiness}} {{avg.bussiness_grade}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{% if avg.bussiness != 0 %} {{remark.bussiness}} {% else %} -- {% endif %}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">A.F.</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Total Points</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{first_exam.total_points}}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{second_exam.total_points}}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{third_exam.total_points}}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{avg.total_points}}</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Class Position</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{first_exam.class_position}}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{second_exam.class_position}}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{third_exam.class_position}}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{avg.class_position}}</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">Stream Position</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{first_exam.stream_position}}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{second_exam.stream_position}}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{third_exam.stream_position}}</td><td style="border: 1px solid rgb(194, 191, 191);border:1px solid rgb(194, 191, 191);">{{stream_position}}</td>
+          </tr>
+          </table>
+                     
+      </div>
+      <div style="width: 100%; height: auto;clear: both;">
+          <!-- matplot graph -->
+          <img
+            style="width: 100%; height: 350px; margin: 0px; padding:0px ;"
+            src="data:image/png;base64,{{image_base64}}"
+          />  
+      </div>
+      <div style="clear: both;">
+        <p> <b>class teacher's remarks:</b><br/>
+          
+        </p>
+        <hr>
+      </div>
+      <br>
+      <div style="width: 100%;">
+      <div id='fees' style="float: right;">
+        <h6>FEES INFORMATION</h6>
+        
+        FEE BALANCE <u><b>{{balance}}</b></u><br>
+        NEXT TERM FEES  <u><b>{{next_term_fee}}</u></br>
+        TOTAL  <u><b>{{next_term_balance}}</u></br>
+      </div>
+      <div style="float: left">
+        <b>official stamp and signature</b><br>
+        <img style="width: 120px; height: 100px" src="{% static 'custom_images/stamp.jpg' %}">
+      </div>
+      </div>
+      <footer style="clear: both; font-size: 10px;">closing date {{closing_date}} opening date {{opening_date}}</footer>
+  </body>
+</html>

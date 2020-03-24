@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+  <div class="col-md-6">
+    <a href="{% url 'accounts:enter_closing_balance' %}"
+      ><div
+        style="background-color: rgb(37, 37, 216); color:white;"
+        class="metric"
+      >
+        <span class="icon"><i class="fa fa-download"></i></span>
+        <p>
+          <span class="number">Enter Closing Balances</span>
+          <span class="title"
+            >enter closing balances to be displayed on report cards</span
+          >
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-md-6">
+    <a href="{% url 'accounts:edit_fee_structure' %}"
+      ><div
+        style="background-color: rgb(110, 30, 30); color: white;"
+        class="metric"
+      >
+        <span class="icon"><i class="fa fa-bar-chart"></i></span>
+        <p>
+          <span class="number">Fee Structure</span>
+          <span class="title">generete student fee invoices</span>
+        </p>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div class="panel col-md-4">
+    <div class="panel-heading">
+      <h3 class="panel-title">School Population</h3>
+      <!-- <div class="right"></div> -->
+    </div>
+    <div class="panel-body no-padding">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Girls</th>
+            <th>Boys</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">Form1</a></td>
+            <td>{{form1f}}</td>
+            <td>{{form1m}}</td>
+            <td>{{form1}}</td>
+          </tr>
+          <tr>
+            <td><a href="#">Form2</a></td>
+            <td>{{form2f}}</td>
+            <td>{{form2m}}</td>
+            <td>{{form2}}</td>
+          </tr>
+          <tr>
+            <td><a href="#">Form3</a></td>
+            <td>{{form3f}}</td>
+            <td>{{form3m}}</td>
+            <td>{{form3}}</td>
+          </tr>
+          <tr>
+            <td><a href="#">Form4</a></td>
+            <td>{{form4f}}</td>
+            <td>{{form4m}}</td>
+            <td>{{form4}}</td>
+          </tr>
+          <tr>
+            <td><a href="#">total</a></td>
+            <td>{{girls_total}}</td>
+            <td>{{boys_total}}</td>
+            <td>{{school_total}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block content %}
+<form class="form-group">
+  <label for="search-key" style="margin: 3px;"
+    >Find student by name or adm No.</label
+  >
+  <input name="key" type="text" id="search-key" /><input
+    type="submit"
+    value="search"
+    class="btn btn-primary ml-3"
+  />
+</form>
+<ul class="list-group">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>
+          name
+        </th>
+        <th>
+          adm no
+        </th>
+        <th>
+          form
+        </th>
+        <th>
+          stream
+        </th>
+        <th>
+          upi_no
+        </th>
+        <th>
+          kcpe marks
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in search_queryset %}
+      <tr>
+        <td>
+          <a href="/edit_student/{{student.id}}/">
+            {{student.student_name}}
+          </a>
+        </td>
+        <td>
+          {{student.adm_no}}
+        </td>
+        <td>
+          {{student.form}}
+        </td>
+        <td>
+          {{student.stream}}
+        </td>
+        <td>
+          {{student.upi_no}}
+        </td>
+        <td>
+          {{student.kcpe}}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</ul>
+{% endblock content %}

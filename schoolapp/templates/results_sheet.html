@@ -1,9 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 <table class="table table-bordered">
+  <form method="POST">
+    {% csrf_token %} Stream
+    <a class="btn btn-primary m-4" href="?form={{form}}&stream=a">A</a>
+    <a class="btn btn-primary m-4" href="?form={{form}}&stream=b">B</a>
+    <a class="btn btn-primary m-4" href="?form={{form}}&stream=c">C</a>
+    <a class="btn btn-primary m-4" href="?form={{form}}">Entire</a>
+    <input type="text" name="print" value="print" hidden />
+    <input class="btn btn-warning" type="submit" value="print" />
+  </form>
   <thead>
     <tr>
       <th>
-        form rank
+        pos
       </th>
       <th>
         name
@@ -12,7 +21,10 @@
         adm no
       </th>
       <th>
-        class rank
+        stream
+      </th>
+      <th>
+        stream pos
       </th>
       <th>
         Mat
@@ -48,7 +60,7 @@
         agr
       </th>
       <th>
-        comp
+        total_points
       </th>
     </tr>
   </thead>
@@ -65,43 +77,57 @@
         {{result.adm_no}}
       </td>
       <td>
+        {{result.stream}}
+      </td>
+      <td>
         {{result.stream_rank}}
       </td>
       <td>
-        {{result.mathematics}}
+        {% if result.mathematics != 0 %} {{result.mathematics}}
+        {{result.mathematics_grade}} {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.english}}
+        {% if result.english != 0 %} {{result.english}} {{result.english_grade}}
+        {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.kiswahili}}
+        {% if result.kiswahili != 0 %} {{result.kiswahili}}
+        {{result.kiswahili_grade}} {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.chemistry}}
+        {% if result.chemistry != 0 %} {{result.chemistry}}
+        {{result.chemistry_grade}} {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.biology}}
+        {% if result.biology != 0 %} {{result.biology}} {{result.biology_grade}}
+        {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.physics}}
+        {% if result.physics != 0 %} {{result.physics}} {{result.physics_grade}}
+        {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.geography}}
+        {% if result.geography != 0 %} {{result.geography}}
+        {{result.geography_grade}} {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.history}}
+        {% if result.history != 0 %} {{result.history}} {{result.history_grade}}
+        {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.cre}}
+        {% if result.cre != 0 %} {{result.cre}} {{result.cre_grade}} {% else %}
+        -- {% endif %}
       </td>
       <td>
-        {{result.bussiness}}
+        {% if result.bussiness != 0 %} {{result.bussiness}}
+        {{result.bussiness_grade}} {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.agriculture}}
+        {% if result.agriculture != 0 %} {{result.agriculture}}
+        {{result.agriculture_grade}} {% else %} -- {% endif %}
       </td>
       <td>
-        {{result.computer_studies}}
+        {{result.total_points}}
       </td>
     </tr>
     {% endfor %}
